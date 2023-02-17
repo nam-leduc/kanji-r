@@ -23,6 +23,7 @@ export function Favorite({ favorite, toggleRemembered }) {
       value={favorite ? "false" : "true"}
       aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
       style={style}
+      role="favorite"
     >
       {favorite ? "★" : "☆"}
     </a>
