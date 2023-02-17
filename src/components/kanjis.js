@@ -1,11 +1,16 @@
-import MEANING from "./kanjiMeaning";
+import KANJI_DETAIL from "./kanjiDetails";
 
 function createKanjiDataForEachPage(...cells) {
   let cols = cells.map((kanji) => {
-    const meaning = kanji in MEANING ? MEANING[kanji].Mean : kanji;
+    const meaningExists = kanji in KANJI_DETAIL && KANJI_DETAIL[kanji].mean;
+    const meaning = meaningExists ? KANJI_DETAIL[kanji].mean : kanji;
+
+    const examplesExists = kanji in KANJI_DETAIL && KANJI_DETAIL[kanji].examples;
+    const examples = examplesExists ? KANJI_DETAIL[kanji].examples : [];
+
     const value = kanji;
     const remembered = false;
-    return { value, kanji, remembered, meaning, note: "" };
+    return { value, kanji, remembered, meaning, examples };
   });
   return cols;
 }

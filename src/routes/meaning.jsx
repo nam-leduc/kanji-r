@@ -1,4 +1,5 @@
 import { useState } from "react";
+import KanjiDialog from "../components/KanjiDialog";
 import KanjiPageSelection from "../components/KanjiPageSelection";
 import ROWS, { RENDER_TABLES } from "../components/kanjis";
 import KanjiTable from "../components/KanjiTable";
@@ -16,6 +17,7 @@ export default function Meaning() {
 
   return (
     <>
+      <KanjiDialog />
       <KanjiPageSelection {...dataForTableSelection} />
 
       <div style={{ marginTop: 20 }}>

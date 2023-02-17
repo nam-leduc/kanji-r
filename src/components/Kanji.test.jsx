@@ -2,11 +2,11 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Kanji } from "./Kanji";
-import MEANING from "./kanjiMeaning";
+import KANJI_DETAIL from "./kanjiDetails";
 
 function getKanji() {
   const kanji = "一";
-  const meaning = kanji in MEANING ? MEANING[kanji].Mean : kanji;
+  const meaning = kanji in KANJI_DETAIL ? KANJI_DETAIL[kanji].Mean : kanji;
   const value = kanji;
   const remembered = false;
   return { value, kanji, remembered, meaning, note: "" };

@@ -1,7 +1,9 @@
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
+import { useDispatch } from "react-redux";
 import { Favorite } from "./Favorite";
+import { openDialog } from "./kanjiDialogStateSlice";
 
 export const StyledButton = styled(Button)(({ theme }) => ({
   ...theme.typography.body2,
@@ -11,22 +13,12 @@ export const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 export function Kanji({ defaultCell }) {
+  const dispatch = useDispatch();
+
   const [cell, setCell] = React.useState(defaultCell);
 
   function toggleValue() {
-    setCell((cell) => {
-      if (cell.value === cell.meaning) {
-        return {
-          ...cell,
-          value: cell.kanji,
-        };
-      } else {
-        return {
-          ...cell,
-          value: cell.meaning,
-        };
-      }
-    });
+    dispatch(openDialog(cell));
   }
 
   function toggleRemembered() {
