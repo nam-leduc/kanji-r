@@ -1,8 +1,8 @@
 import { Autocomplete, TextField } from "@mui/material";
 import * as React from "react";
-import { RENDER_TABLES } from "./ROWS";
+import { RENDER_TABLES } from "./kanjis";
 
-export default function KanjiTableSelection({
+export default function KanjiPageSelection({
   value,
   setValue,
   inputValue,
@@ -16,7 +16,6 @@ export default function KanjiTableSelection({
       sx={{ width: 300 }}
       value={value}
       onChange={(event, newValue) => {
-        console.log(newValue);
         setValue(newValue);
       }}
       inputValue={inputValue}

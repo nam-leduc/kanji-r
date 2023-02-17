@@ -1,19 +1,20 @@
-import MEANING from "./MEANING";
+import MEANING from "./kanjiMeaning";
 
-function createRows(...cells) {
-  const remembered = false;
+function createKanjiDataForEachPage(...cells) {
   let cols = cells.map((kanji) => {
     const meaning = kanji in MEANING ? MEANING[kanji].Mean : kanji;
     const value = kanji;
+    const remembered = false;
     return { value, kanji, remembered, meaning, note: "" };
   });
   return cols;
 }
+
 const ROWS = [
   {
     id: 1,
     name: "5k - 1",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "一",
       "右",
       "雨",
@@ -59,7 +60,7 @@ const ROWS = [
   {
     id: 2,
     name: "5k - 2",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "人",
       "水",
       "正",
@@ -105,7 +106,7 @@ const ROWS = [
   {
     id: 3,
     name: "5k - 3",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "引",
       "羽",
       "雲",
@@ -151,7 +152,7 @@ const ROWS = [
   {
     id: 4,
     name: "5k - 4",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "古",
       "午",
       "後",
@@ -197,7 +198,7 @@ const ROWS = [
   {
     id: 5,
     name: "5k - 5",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "場",
       "色",
       "食",
@@ -243,7 +244,7 @@ const ROWS = [
   {
     id: 6,
     name: "5k - 6",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "東",
       "答",
       "頭",
@@ -289,7 +290,7 @@ const ROWS = [
   {
     id: 7,
     name: "4k - 1",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "悪",
       "安",
       "暗",
@@ -335,7 +336,7 @@ const ROWS = [
   {
     id: 8,
     name: "4k - 2",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "銀",
       "区",
       "苦",
@@ -381,7 +382,7 @@ const ROWS = [
   {
     id: 9,
     name: "4k - 3",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "拾",
       "終",
       "習",
@@ -427,7 +428,7 @@ const ROWS = [
   {
     id: 10,
     name: "4k - 4",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "炭",
       "短",
       "談",
@@ -473,7 +474,7 @@ const ROWS = [
   {
     id: 11,
     name: "4k - 5",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "氷",
       "表",
       "秒",
@@ -519,7 +520,7 @@ const ROWS = [
   {
     id: 12,
     name: "4k - 6",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "愛",
       "案",
       "以",
@@ -565,7 +566,7 @@ const ROWS = [
   {
     id: 13,
     name: "4k - 7",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "給",
       "挙",
       "漁",
@@ -611,7 +612,7 @@ const ROWS = [
   {
     id: 14,
     name: "4k - 8",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "士",
       "氏",
       "史",
@@ -657,7 +658,7 @@ const ROWS = [
   {
     id: 15,
     name: "4k - 9",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "束",
       "側",
       "続",
@@ -703,7 +704,7 @@ const ROWS = [
   {
     id: 16,
     name: "4k - 10",
-    cols: createRows(
+    cols: createKanjiDataForEachPage(
       "夫",
       "付",
       "府",
