@@ -13,26 +13,27 @@ function getKanji() {
 }
 
 describe("Test Kanji", () => {
-  it("change to not remember status", async () => {
+  it("test toggle remember", async () => {
     // ARRANGE
     render(<Kanji defaultCell={getKanji()} />);
 
     // ACT
     await userEvent.click(screen.getByText("☆"));
-
-    // ASSERT
     expect(screen.getByRole("favorite")).toHaveTextContent("★");
+
+    await userEvent.click(screen.getByText("★"));
+    expect(screen.getByRole("favorite")).toHaveTextContent("☆");
   });
 
-  it("change to remembered status", async () => {
+  it("test toggle kanji and meaning", async () => {
     // ARRANGE
     render(<Kanji defaultCell={getKanji()} />);
 
     // ACT
-    await userEvent.click(screen.getByText("☆"));
-    await userEvent.click(screen.getByText("★"));
+    await userEvent.click(screen.getByText(getKanji().kanji));
+    expect(screen.getByText(getKanji().meaning)).toBeInTheDocument();
 
-    // ASSERT
-    expect(screen.getByRole("favorite")).toHaveTextContent("☆");
+    await userEvent.click(screen.getByText(getKanji().meaning));
+    expect(screen.getByText(getKanji().kanji)).toBeInTheDocument();
   });
 });
