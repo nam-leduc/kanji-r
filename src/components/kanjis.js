@@ -1,16 +1,23 @@
-import KANJI_DETAIL from "./kanjiDetails";
+import KANJI_DETAIL from "./kanjiDetail.json";
 
 function createKanjiDataForEachPage(...cells) {
   let cols = cells.map((kanji) => {
-    const meaningExists = kanji in KANJI_DETAIL && KANJI_DETAIL[kanji].mean;
-    const meaning = meaningExists ? KANJI_DETAIL[kanji].mean : kanji;
+    let kanjiDetail = {
+      mean: kanji,
+      examples: [],
+    };
+    if (kanji in KANJI_DETAIL) {
+      kanjiDetail = KANJI_DETAIL[kanji];
+    }
 
-    const examplesExists = kanji in KANJI_DETAIL && KANJI_DETAIL[kanji].examples;
-    const examples = examplesExists ? KANJI_DETAIL[kanji].examples : [];
+    const meaning = kanjiDetail.mean;
+    const examples = kanjiDetail.examples;
+    const onyomi = kanjiDetail.on;
+    const kunyomi = kanjiDetail.kun;
 
     const value = kanji;
     const remembered = false;
-    return { value, kanji, remembered, meaning, examples };
+    return { value, kanji, remembered, meaning, examples, onyomi, kunyomi };
   });
   return cols;
 }

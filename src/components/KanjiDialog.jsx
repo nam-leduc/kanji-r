@@ -27,8 +27,9 @@ export default function KanjiDialog() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Kanji {data.kanji}</DialogTitle>
         <DialogContent>
-          <p>{data.kanji}</p>
-          <p>{data.meaning}</p>
+          <div>Kunyomi: {data.kunyomi}</div>
+          <div>Onyomi: {data.onyomi}</div>
+          <div>Meaning: {data.meaning}</div>
           <ul>
             {data.examples.map((kanji) => (
               <li key={kanji}>{kanji}</li>

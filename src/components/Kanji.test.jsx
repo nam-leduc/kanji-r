@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Kanji } from "./Kanji";
-import KANJI_DETAIL from "./kanjiDetails";
+import KANJI_DETAIL from './kanjiDetail.json';
 
 function getKanji() {
   const kanji = "一";
