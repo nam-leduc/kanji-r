@@ -16,7 +16,11 @@ function createKanjiDataForEachPage(...cells) {
     const kunyomi = kanjiDetail.kun;
 
     const value = kanji;
-    const remembered = false;
+    let remembered = localStorage.getItem(kanji);
+    if (remembered == null || remembered == "false") {
+      remembered = false;
+    }
+
     return { value, kanji, remembered, meaning, examples, onyomi, kunyomi };
   });
   return cols;

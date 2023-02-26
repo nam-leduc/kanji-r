@@ -28,6 +28,10 @@ export function Kanji({ defaultCell }) {
     });
   }
 
+  React.useEffect(() => {
+    localStorage.setItem(cell.value, cell.remembered);
+  }, [cell]);
+
   return (
     <>
       <StyledButton
@@ -35,7 +39,10 @@ export function Kanji({ defaultCell }) {
         disableTouchRipple={true}
         disableFocusRipple={true}
         disableRipple={true}
-        sx={{ fontSize: cell.value === cell.kanji ? 32 : 10 }}
+        sx={{
+          fontSize: cell.value === cell.kanji ? 32 : 10,
+          background: cell.remembered ? "#b5ffb5": "inherit",
+        }}
         onClick={() => toggleValue()}
       >
         {cell.value}
