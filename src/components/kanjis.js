@@ -12,8 +12,8 @@ function createKanjiDataForEachPage(...cells) {
 
     const meaning = kanjiDetail.mean;
     const examples = kanjiDetail.examples;
-    const onyomi = kanjiDetail.on;
-    const kunyomi = kanjiDetail.kun;
+    const onyomi = kanjiDetail.on != null ? kanjiDetail.on : "N/A";
+    const kunyomi = kanjiDetail.kun != null ? kanjiDetail.kun : "N/A";
 
     const value = kanji;
     let remembered = localStorage.getItem(kanji);

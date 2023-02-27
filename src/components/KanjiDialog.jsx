@@ -27,8 +27,8 @@ export default function KanjiDialog() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Kanji {data.kanji}</DialogTitle>
         <DialogContent>
-          <div>Kunyomi: {data.kunyomi}</div>
-          <div>Onyomi: {data.onyomi}</div>
+          <div>Kunyomi: <b>{data.kunyomi.replace(/ /g, " | ")}</b></div>
+          <div>Onyomi: <b>{data.onyomi.replace(/ /g, " | ")}</b></div>
           <div>Meaning: {data.meaning}</div>
           <ul>
             {data.examples.map((kanji) => (
