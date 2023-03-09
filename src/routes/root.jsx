@@ -8,7 +8,7 @@ export default function Root() {
       <Container maxWidth="md">
         <Button variant="contained">Ôn tập</Button>
 
-        <Divider>
+        <Divider sx={{margin: "10px 0px"}}>
           <Chip label="Bảng chữ" />
         </Divider>
 

@@ -1,30 +1,4 @@
-import KANJI_DETAIL from "./kanjiDetail.json";
-
-function createKanjiDataForEachPage(...cells) {
-  let cols = cells.map((kanji) => {
-    let kanjiDetail = {
-      mean: kanji,
-      examples: [],
-    };
-    if (kanji in KANJI_DETAIL) {
-      kanjiDetail = KANJI_DETAIL[kanji];
-    }
-
-    const meaning = kanjiDetail.mean;
-    const examples = kanjiDetail.examples;
-    const onyomi = kanjiDetail.on != null ? kanjiDetail.on : "N/A";
-    const kunyomi = kanjiDetail.kun != null ? kanjiDetail.kun : "N/A";
-
-    const value = kanji;
-    let remembered = localStorage.getItem(kanji);
-    if (remembered == null || remembered == "false") {
-      remembered = false;
-    }
-
-    return { value, kanji, remembered, meaning, examples, onyomi, kunyomi };
-  });
-  return cols;
-}
+import { createKanjiDataForEachPage } from "./createKanjiDataForEachPage";
 
 const ROWS = [
   {
@@ -761,6 +735,58 @@ const ROWS = [
       "老",
       "労",
       "録"
+    ),
+  },
+  {
+    id: 17,
+    name: "Katakana",
+    cols: createKanjiDataForEachPage(
+      "ア",
+      "イ",
+      "ウ",
+      "エ",
+      "オ",
+      "カ",
+      "キ",
+      "ク",
+      "ケ",
+      "コ",
+      "サ",
+      "シ",
+      "ス",
+      "セ",
+      "ソ",
+      "タ",
+      "チ",
+      "ツ",
+      "テ",
+      "ト",
+      "ナ",
+      "ニ",
+      "ヌ",
+      "ネ",
+      "ノ",
+      "ハ",
+      "ヒ",
+      "フ",
+      "ヘ",
+      "ホ",
+      "マ",
+      "ミ",
+      "ム",
+      "メ",
+      "モ",
+      "ヤ",
+      "ユ",
+      "ヨ",
+      "ラ",
+      "リ",
+      "ル",
+      "レ",
+      "ロ",
+      "ワ",
+      "ヲ",
+      "ン"
     ),
   },
 ];
